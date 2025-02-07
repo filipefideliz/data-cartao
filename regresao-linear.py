@@ -70,14 +70,18 @@ y_pred = lr.predict(X_test)
 # sum(y_pred == y_test) / len(y_pred)
 
 acc= np.mean(y_pred == y_test)
+acc
+# %% MATRIZ DE CONFUSAO -> E a contagem de combinaçoes de resultados organizados em uma matriz
+# modelo = 1 -> real = 1 tp - true positive
+# modelo = 0 -> real = 1 fn - false negative
+# modelo = 1 -> real = 0 fp - false positive
+# modelo = 0 -> real = 0 tn - true negative
 
-# %% e a contagem de combinaçoes de resultados organizados em uma matriz
-# modelo = 1 -> real = 1 tp
-# modelo = 0 -> real = 1
-# modelo = 1 -> real = 0
-# modelo = 0 -> real = 0
+TP = sum((y_pred == 1 ) & (y_test == 1))
+TN = sum((y_pred == 0 ) & (y_test == 0))
+FP = sum((y_pred == 1 ) & (y_test == 0))
+FN = sum((y_pred == 0 ) & (y_test == 1))
 
-TP = 1
-TN = 1
-FP = 1
-FN = 1 
+TP, TN, FP, FN
+# %%
+np.array([[TN, FP], [FN, TP]])
