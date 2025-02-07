@@ -55,3 +55,29 @@ print(y_train.shape)
 
 # %%
 np.mean(y_train), np.mean(y_test)
+
+# %% criando o modelo
+from sklearn.linear_model import LogisticRegression
+
+lr = LogisticRegression()
+lr.fit(X_train, y_train)
+y_pred = lr.predict(X_test)
+
+
+# %% acuracia quantidade de valores de predição que vc acertou
+#pela quantidade do vetor
+#como verificamos:
+# sum(y_pred == y_test) / len(y_pred)
+
+acc= np.mean(y_pred == y_test)
+
+# %% e a contagem de combinaçoes de resultados organizados em uma matriz
+# modelo = 1 -> real = 1 tp
+# modelo = 0 -> real = 1
+# modelo = 1 -> real = 0
+# modelo = 0 -> real = 0
+
+TP = 1
+TN = 1
+FP = 1
+FN = 1 
