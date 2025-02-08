@@ -84,4 +84,10 @@ FN = sum((y_pred == 0 ) & (y_test == 1))
 
 TP, TN, FP, FN
 # %%
-np.array([[TN, FP], [FN, TP]])
+#
+confusion_matrix = np.array([[TN, FP], [FN, TP]])
+# %%
+sum(confusion_matrix.diagonal()) / confusion_matrix.sum()
+# %%s predict-proba
+lr.predict_proba(X_test)
+
